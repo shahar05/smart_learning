@@ -4,6 +4,7 @@ export interface baseEntity {
     id: string;
 }
 
+// Hola Maraliola 
 export interface User extends baseEntity {
     email: string;
     password: string;
