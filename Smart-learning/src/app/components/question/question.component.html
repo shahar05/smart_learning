@@ -1,0 +1,47 @@
+<div class="d-flex col flex-row flex-row-reverse">
+  <div class="d-flex align-items-center justify-content-center form-container">
+    <img class="image"  [src]="question.question.imageUrl" />
+  </div>
+
+  <div class="cross-line"></div>
+
+  <div
+    class="left-container align-items-center d-flex justify-content-center form-container"
+  >
+
+    <div
+      class="d-flex flex-column align-items-center justify-content-center"
+      *ngIf="showAnswer"
+    >
+    <div class="d-flex flex-column col-8 text-center mb-3">
+      <h1>איך הייתי</h1>
+      <div class="d-flex justify-content-between">
+          <img class="smile-face" (click)="finish(0)" height="50" src="/assets/images/frown-regular.svg">
+          <img class="smile-face" (click)="finish(1)" height="50" src="/assets/images/meh-regular.svg">
+          <img class="smile-face" (click)="finish(2)" height="50" src="/assets/images/laugh-regular.svg">
+      </div>
+    </div>
+      <img class="image"  [src]="question.answer.imageUrl" />
+    </div>
+
+
+    <div class="d-flex flex-column justify-content-center" *ngIf="!showAnswer">
+      <div class="d-flex align-items-center justify-content-center m-3">
+        <div>
+          זמן בדקות
+        </div>
+        <ngx-counter
+          [(ngModel)]="counter"
+          [speed]="1000 * 60"
+          [limit]="question.question.time"
+          size="large"
+          font="Arial"
+          theme="gray"
+        ></ngx-counter>
+      </div>
+      
+      <button class="btn btn-primary m-3" (click)="done()">סיימתי</button>
+      <button *ngIf="isPractice" class="btn btn-primary m-3" (click)="donePractice()">סיים תרגול</button>
+    </div>
+  </div>
+</div>

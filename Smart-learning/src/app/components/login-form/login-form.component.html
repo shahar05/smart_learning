@@ -1,0 +1,42 @@
+<div class="form-group text-right">
+  <label for="exampleInputEmail1">כתובת מייל</label>
+  <input
+    [(ngModel)]="user.email"
+    type="email"
+    class="form-control"
+    aria-describedby="emailHelp"
+    placeholder="Email"
+  />
+
+  <ng-content></ng-content>
+  <small class="form-text red-text" *ngIf="emailError">{{ emailError }}</small>
+</div>
+<div class="form-group text-right">
+  <label for="exampleInputPassword1">סיסמא</label>
+  <input
+    [(ngModel)]="user.password"
+    type="password"
+    class="form-control"
+    placeholder="Password"
+  />
+  <small class="form-text red-text" *ngIf="passwordError">{{
+    passwordError
+  }}</small>
+</div>
+
+<div class="form-group text-right" *ngIf="hasExtraTime">
+  <label for="exampleFormControlSelect1">בחר נושא</label>
+  <select class="form-control text-right">
+    <option class="text-right">פיזיקה</option>
+  </select>
+</div>
+<div class="form-group" *ngIf="hasExtraTime">
+  <div class="checkbox text-right">
+    <label
+      >תוספת זמן
+      <input [(ngModel)]="user.hasExtraTime" type="checkbox" />
+    </label>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary" (click)="submit()">שלח</button>

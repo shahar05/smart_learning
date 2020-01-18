@@ -1,0 +1,10 @@
+<div class="d-flex flex-row align-items-center">
+  <div class="mr-3">{{ rating }}/{{ max }}</div>
+  <div class="d-flex flex-row " *ngIf="barsAmount">
+    <div
+      *ngFor="let item of barsAmount"
+      class="bar-item"
+      [class.checked]="rating > item"
+    ></div>
+  </div>
+</div>

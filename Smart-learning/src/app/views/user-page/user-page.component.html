@@ -1,0 +1,41 @@
+<div class="d-flex flex-row" *ngIf="user">
+  
+  
+  <div class="d-flex justify-content-center form-container">
+    <div class="form-inner-container flex-column" *ngIf="subjectRatingList">
+      <p class="text-right ex-header">
+        לתרגול לחץ על הנושא
+      </p>
+      <div class="d-flex flex-column justify-content-between mt-3" *ngFor="let subject of subjectRatingList">
+        <div class="d-flex pr-3 pt-1 justify-content-end">
+          <a (click)="navigateToPracticePage(subject.subjectId)">
+            {{subject.name}}
+          </a>
+        </div>
+        <div class="d-flex">
+          <rating-bar [rating]="subject.rating"></rating-bar>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="cross-line"></div>
+  
+  <div class="left-container d-flex justify-content-center form-container">
+    <div class="form-inner-container  flex-column">
+      <div class="d-flex rtl">
+        כאן תוכל/י לראות את "החוזק" שלך בנושאי הקורס לפי המבחנים שפתרת.
+המד מחולק לפי הנושאים של הקורס שבחרת, וכל נושא מדורג מ- 0-5 כך ש:
+0 – רמה נמוכה
+5 – רמה גבוהה
+השאלות בנושאי הקורס במבחנים הבאים יופיעו על פי מד הרמה הנוכחי.
+      </div>
+      <div class="d-flex justify-content-center mt-3 pt-3">
+        <button type="submit" class="d-flex btn btn-primary" (click)="takeTest()">
+          בחינה
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

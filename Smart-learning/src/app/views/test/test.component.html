@@ -1,0 +1,41 @@
+<div class="d-flex justify-content-center align-items-center">
+  <div *ngIf="beforeStartingTest" class="d-flex flex-column m-3 p-3 col-8 rtl">
+
+    <p>את/ה עומד להתחיל מבחן בקורס שבחרת.</p>
+    <p>
+      <strong>שים לב</strong>
+      לשעון הזמן המופיע בצד שמאל של השאלה, כל חריגה מהזמן המוקצב לפתירת השאלה תוריד מהציון שלך באותו נושא במד הרמה שלך.
+      ברגע שסיימת לענות על השאלה לחץ/י על הכפתור סיימתי, ברגע הלחיצה תופיע התשובה המלאה לשאלה ובנוסף יופיעו כפתורי סמיילים לביקורת עצמית על הפתרון שלך לשאלה.
+      </p>
+      <ul>
+        <li>סמיילי שמח (בצבע ירוק) -  עניתי על השאלה בצורה מלאה.</li>
+        <li>סמיילי ניטראלי (בצבע שחור) - לא הגעתי לתשובה מלאה / פתרון חלקי.</li>
+        <li>סמיילי עצוב (בצבע אדום) - לא פתרתי את השאלה.
+          </li>
+      </ul>
+      <p>
+        <strong>
+            שים לב –
+        </strong>
+        הבחירה באחד מכפתורי הסמיילים ישפיעו על הציון במד הרמה שלך ובכך ישפיעו על הופעת השאלות במבחנים הבאים שתעשה, לכן רצוי לבחור בכפתור שהכי מתאים לפתרון שלך.
+            ברגע שאת/ה מוכנים להתחיל את הבחינה לחץ על הכפתור התחל בחינה.
+            בהצלחה!</p>
+
+      
+
+    <div class="d-flex  justify-content-center mt-3 ">
+      <button class="btn btn-primary" (click)="startTest()">התחל בחינה</button>
+    </div>
+  </div>
+  <div *ngIf="!beforeStartingTest && currentTest" class="d-flex flex-column col">
+    <div class="d-flex col" *ngFor="let question of currentTest; let i = index">
+      <question
+      [user]="user"
+        class="d-flex col"
+        (finishQuestion)="finishQuestion($event)"
+        [question]="question"
+        *ngIf="i == currentQuestionIndex"
+      ></question>
+    </div>
+  </div>
+</div>

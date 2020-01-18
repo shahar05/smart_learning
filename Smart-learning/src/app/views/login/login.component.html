@@ -1,0 +1,39 @@
+<div class="d-flex flex-column">
+<div class="d-flex text-center justify-content-center">
+  <div class="col-4 justify-content-center">
+    SmartLearning הוא שירות מקוון ללימוד לקראת מבחן.
+    השירות בנוי בצורה בה המשתמשים בוחרים מקצוע לימוד, שלו מאגר תרגילים ופתרונות מעודכן. באמצעות משוב התלמיד וזמן הפתרון, בונה עבורו מבחן עם השאלות הכי רלוונטיות
+</div>
+</div>
+
+<div class="d-flex flex-row flex-row-reverse">
+  <div
+    class="left-container d-flex justify-content-center form-container"
+    *ngIf="loginUser"
+  >
+    
+    <div class="form-inner-container  flex-column">
+      <div class="d-flex header justify-content-center">
+        <span>היכנס</span>
+      </div>
+      <login-form [user]="loginUser" (submitForm)="login($event)"></login-form>
+    </div>
+  </div>
+
+  <div class="cross-line"></div>
+
+  <div class="d-flex justify-content-center form-container" *ngIf="createUser">
+    <div class="form-inner-container  flex-column ">
+      <div class="d-flex header justify-content-center">
+        <span>צור משתמש</span>
+      </div>
+      <login-form [hasExtraTime]="'true'" [user]="createUser" (submitForm)="createNewUser($event)">
+        <small class="form-text text-muted"
+          >לעולם לא נעביר את כתובת המייל שלך</small
+        >
+      </login-form>
+
+    </div>
+  </div>
+</div>
+</div>

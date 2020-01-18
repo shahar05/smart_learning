@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center">
+
+    <div *ngIf="questions" class="d-flex flex-column col">
+      <div class="d-flex col" *ngFor="let question of questions; let i = index">
+        <question
+        (finishPractice)="finishPractice()"
+          (finishQuestion)="finishQuestion($event)"
+          [isPractice]="'true'"
+          [question]="question"
+          class="d-flex col"
+          *ngIf="i == currentQuestionIndex"
+        ></question>
+      </div>
+    </div>
+  </div>
+  
