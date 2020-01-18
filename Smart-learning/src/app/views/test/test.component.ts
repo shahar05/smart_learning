@@ -6,6 +6,8 @@ import { QuestionService } from 'src/app/services/question/question.service';
 import * as M from '../../app.models';
 import { formGroupNameProvider } from '@angular/forms/src/directives/reactive_directives/form_group_name';
 
+
+// Hola hola hola
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
