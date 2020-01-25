@@ -3,9 +3,9 @@
   <input
     [(ngModel)]="user.email"
     type="email"
-    class="form-control"
+    class="form-control rtl"
     aria-describedby="emailHelp"
-    placeholder="Email"
+    placeholder="מייל"
   />
 
   <ng-content></ng-content>
@@ -14,10 +14,11 @@
 <div class="form-group text-right">
   <label for="exampleInputPassword1">סיסמא</label>
   <input
+   
     [(ngModel)]="user.password"
     type="password"
-    class="form-control"
-    placeholder="Password"
+    class="form-control rtl"
+    placeholder="סיסמא"
   />
   <small class="form-text red-text" *ngIf="passwordError">{{
     passwordError
@@ -26,7 +27,7 @@
 
 <div class="form-group text-right" *ngIf="hasExtraTime">
   <label for="exampleFormControlSelect1">בחר נושא</label>
-  <select class="form-control text-right">
+  <select class="form-control text-right rtl">
     <option class="text-right">פיזיקה</option>
   </select>
 </div>
